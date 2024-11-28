@@ -13,7 +13,7 @@
     "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "true",
-    "APP_URL": "https://vercel.com/new?teamSlug=yasmines-projects-52e3d75b",
+    "APP_URL": "https://vercel.com/yasmines-projects-52e3d75b",
     "APP_KEY": "base64:q5tLxUAYdMutUcBWgpH5ZZmxUy7WkUCLrPNDXa9k2NM=",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
