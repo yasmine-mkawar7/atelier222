@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import Editarticle from './assets/components/articles/Editarticle';
 import Insertarticle from './assets/components/articles/Insertarticle';
@@ -16,6 +16,7 @@ import Viewarticle from './assets/components/articles/Viewarticle';
 import Viewcategorie from './assets/components/categories/Viewcategorie';
 import Viewscategorie from './assets/components/scategories/Viewscategorie';
 import Menu from './assets/components/menu/Menu';
+import Liste from '/Liste';
 const App=() =>{
 return (
 <div>
@@ -34,7 +35,7 @@ return (
 <Route path="/scategories/add" element={<Insertscategorie/>}/>
 <Route path="/scategories/edit/:id" element={<Editscategorie/>}/>
 <Route path="/scategories/view/:id" element={<Viewscategorie/>}/>
-</Routes>
+</Routes><Route path="/liste" element={<Liste/>}/>
 </Router>
 </div>
 );

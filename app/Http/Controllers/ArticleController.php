@@ -81,4 +81,44 @@ return response()->json("catégorie supprimée avec succes");
 return response()->json("probleme de suppression de catégorie {$e->getMessage()}");
 }
 }
+public function articlesPaginate()
+{
+try {
+$perPage = request()->input('pageSize', 2);
+// Récupère la valeur dynamique pour la pagination
+$articles = Article::with('scategorie')->paginate($perPage);
+// Retourne le résultat en format JSON API
+return response()->json([
+'products' => $articles->items(), // Les articles paginés
+'totalPages' => $articles->lastPage(), // Le nombre de pages
+]);
+} catch (\Exception $e) {
+return response()->json("Selection impossible {$e->getMessage()}");
+}
+}public function paginationPaginate()
+{
+    try {
+        $perPage = request()->input('pageSize', 2);
+        $filterDesignation = request()->input('filtre', '');
+
+        // Utilisez 'scategorie' au lieu de 'scategories'
+        $query = Article::with('scategorie');  // Correction ici
+
+        if ($filterDesignation) {
+            $query->where('designation', 'like', '%' . $filterDesignation . '%');
+        }
+
+        $articles = $query->paginate($perPage);
+
+        return response()->json([
+            'products' => $articles->items(),
+            'totalPages' => $articles->lastPage(),
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => "Une erreur s'est produite : {$e->getMessage()}",
+        ], 500);
+    }
+}
+
 }

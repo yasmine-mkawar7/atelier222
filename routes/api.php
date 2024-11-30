@@ -40,3 +40,6 @@ Route::get("/articles/{id}",[ArticleController::class,"show"]);
 Route::delete("/articles/{id}",[ArticleController::class,"destroy"]);
 Route::put("/articles/{id}",[ArticleController::class,"update"]);
 
+Route::get('/articles/art/articlespaginate', [ArticleController::class,
+'articlesPaginate']);
+Route::get('/articles/art/paginationPaginate', [ArticleController::class, 'paginationPaginate']);
